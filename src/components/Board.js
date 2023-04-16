@@ -1,14 +1,31 @@
 import { useState } from "react";
 import Cell from "./Cell";
 
-const Board = () => {
+const Board = ({ size }) => {
   const createGrid = () =>
-    new Array(5)
+    new Array(size)
       .fill()
-      .map((r) => new Array(5).fill().map((c) => Math.random() < 0.4));
+      .map((r) => new Array(size).fill().map((c) => Math.random() < 0.4));
   const [board, setBoard] = useState(createGrid());
 
-  const toggleLight = (row, col) => {};
+  const toggleLight = (row, col) => {
+    const copy = [...board.map((r) => [...r])];
+
+    copy[row][col] = !copy[row][col];
+    if (row < size - 1) {
+      copy[row + 1][col] = !copy[row + 1][col];
+    }
+    if (row > 0) {
+      copy[row - 1][col] = !copy[row - 1][col];
+    }
+    if (row < size - 1) {
+      copy[row][col + 1] = !copy[row][col + 1];
+    }
+    if (row > 0) {
+      copy[row][col - 1] = !copy[row][col - 1];
+    }
+    setBoard(copy);
+  };
 
   return (
     <div className="Board">
