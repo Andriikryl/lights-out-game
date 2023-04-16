@@ -1,0 +1,25 @@
+:root{
+  --size: 25px;
+  --dark-color: #22223b;
+  --orange: #ffbe0b;
+}
+
+body{
+  height: 100dvh;
+  background-color: #4a4e69;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title{
+  font-size: 40px;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 2rem;
+  margin-block-end: 20px;
+}
+
+.darck{
+  color: black;
+}
