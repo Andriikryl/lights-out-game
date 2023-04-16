@@ -12,10 +12,10 @@ const Board = () => {
       {board.map((row, rowIndex) => (
         <div className="row" key={rowIndex}>
           {row.map((cell, colIndex) => (
-            <div key={`${rowIndex}-${colIndex}`}>
+            <button className="board-item" key={`${rowIndex}-${colIndex}`}>
               {rowIndex}
               {colIndex}
-            </div>
+            </button>
           ))}
         </div>
       ))}
