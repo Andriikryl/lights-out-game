@@ -1,9 +1,8 @@
-const Cell = ({ rowIndex, colIndex, isOn }) => {
+const Cell = ({ rowIndex, colIndex, isOn, toggleLight }) => {
+  const handleClick = () => toggleLight(rowIndex, colIndex);
+
   return (
-    <button className={isOn ? "on" : "off"} key={`${rowIndex}-${colIndex}`}>
-      {rowIndex}
-      {colIndex}
-    </button>
+    <button onClick={handleClick} className={isOn ? "on" : "off"}></button>
   );
 };
 
