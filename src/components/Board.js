@@ -18,30 +18,38 @@ const Board = ({ size }) => {
     if (row > 0) {
       copy[row - 1][col] = !copy[row - 1][col];
     }
-    if (row < size - 1) {
+    if (col < size - 1) {
       copy[row][col + 1] = !copy[row][col + 1];
     }
-    if (row > 0) {
+    if (col > 0) {
       copy[row][col - 1] = !copy[row][col - 1];
     }
     setBoard(copy);
   };
 
+  const gameEnds = () => board.every((row) => row.every((cell) => !cell));
+
   return (
     <div className="Board">
-      {board.map((row, rowIndex) => (
-        <div className="row" key={rowIndex}>
-          {row.map((cell, colIndex) => (
-            <Cell
-              key={`${rowIndex}-${colIndex}`}
-              toggleLight={toggleLight}
-              isOn={board[rowIndex][colIndex]}
-              rowIndex={rowIndex}
-              colIndex={colIndex}
-            />
-          ))}
+      {gameEnds() ? (
+        <div>
+          <p className="win">You won !!!!!!!!!!!!!!!!!</p>
         </div>
-      ))}
+      ) : (
+        board.map((row, rowIndex) => (
+          <div className="row" key={rowIndex}>
+            {row.map((cell, colIndex) => (
+              <Cell
+                key={`${rowIndex}-${colIndex}`}
+                toggleLight={toggleLight}
+                isOn={board[rowIndex][colIndex]}
+                rowIndex={rowIndex}
+                colIndex={colIndex}
+              />
+            ))}
+          </div>
+        ))
+      )}
     </div>
   );
 };

@@ -59,6 +59,13 @@ box-shadow:
 ;
 }
 
+.win{
+  font-size: 30px;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+}
+
 .off{
   background-color: black;
 }
