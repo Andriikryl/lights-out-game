@@ -43,7 +43,7 @@ body{
   0 16px 16px rgba(0,0,0,0.12);
 }
 
-.board-item{
+button{
   width: var(--size);
   height: var(--size);
   border-radius: 50%;

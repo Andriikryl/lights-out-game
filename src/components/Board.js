@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Cell from "./Cell";
 
 const Board = () => {
   const createGrid = () =>
@@ -12,10 +13,11 @@ const Board = () => {
       {board.map((row, rowIndex) => (
         <div className="row" key={rowIndex}>
           {row.map((cell, colIndex) => (
-            <button className="board-item" key={`${rowIndex}-${colIndex}`}>
-              {rowIndex}
-              {colIndex}
-            </button>
+            <Cell
+              isOn={board[rowIndex][colIndex]}
+              rowIndex={rowIndex}
+              colIndex={colIndex}
+            />
           ))}
         </div>
       ))}
